@@ -14,7 +14,7 @@ import {
 })
 export class DemoComponent implements OnChanges {
   title: string = 'Demo Component';
-  @Input() message?: string[];
+  @Input() message?: string;
 
   @ViewChild('temp') tempPara?: ElementRef;
 
@@ -32,5 +32,9 @@ export class DemoComponent implements OnChanges {
   ngOnInit() {
     console.log('ngOnInit Hook called');
     // console.log(this.tempPara.nativeElement);
+  }
+
+  ngDoCheck() {
+    console.log('ngDoCheck Hook called');
   }
 }
