@@ -1,4 +1,5 @@
 import {
+  AfterContentChecked,
   AfterContentInit,
   Component,
   ContentChild,
@@ -19,7 +20,7 @@ import {
 
 // implementing this interface is not mendatory but it is good practice to implement it.
 export class DemoComponent
-  implements OnChanges, OnInit, DoCheck, AfterContentInit
+  implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked
 {
   title: string = 'Demo Component';
   @Input() message?: string;
@@ -45,11 +46,16 @@ export class DemoComponent
 
   ngDoCheck() {
     console.log('ngDoCheck Hook called');
-    console.log('In ngDoCheck', this.paraContent);
+    // console.log('In ngDoCheck', this.paraContent);
   }
 
   ngAfterContentInit() {
     console.log('ngAfterContentInit Hook called');
-    console.log('In ngAfterContentInit ', this.paraContent?.nativeElement);
+    // console.log('In ngAfterContentInit ', this.paraContent?.nativeElement);
+  }
+
+  ngAfterContentChecked() {
+    console.log('ngAfterContentCheck Hook called');
+    console.log('In ngAfterContentChecked ', this.paraContent?.nativeElement);
   }
 }
