@@ -1,7 +1,9 @@
 <div class="container">
   <input type="text" #inputEl (focus)="(0)" />
   <button (click)="onBtnClicked(inputEl)">Submit</button>
-  <app-demo [message]="inputVal">
+  <app-demo [message]="inputVal" *ngIf="!toDestroy">
     <p #temp>This is projected content: {{ inputVal }}</p>
   </app-demo>
+  <br /><br />
+  <button (click)="destroy()">Show / Hide</button>
 </div>
